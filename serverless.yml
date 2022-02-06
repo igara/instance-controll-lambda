@@ -12,6 +12,7 @@ provider:
     - Effect: 'Allow'
       Action:
         - 'lambda:InvokeFunction'
+        - 'ec2:Describe*'
       Resource:
         - '*'
 

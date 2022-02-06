@@ -5,18 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "syonet_eight_algolia サーバサイド用のデバッガ設定",
+      "name": "サーバサイド用のデバッガ設定",
       "type": "node",
       "request": "attach",
       "skipFiles": ["<node_internals>/**"],
-      "port": 9235,
-      "cwd": "${workspaceRoot}/projects/syonet_eight_algolia"
+      "port": 9233,
+      "cwd": "${workspaceRoot}"
     },
     {
-      "name": "algolia Jest",
+      "name": "Jest",
       "type": "node",
       "request": "launch",
-      "cwd": "${workspaceRoot}/projects/syonet_eight_algolia",
+      "cwd": "${workspaceRoot}",
       "runtimeArgs": [
         "--inspect-brk",
         "${workspaceRoot}/node_modules/jest/bin/jest.js",
@@ -28,7 +28,7 @@
       },
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "port": 9236
+      "port": 9234
     }
   ]
 }
