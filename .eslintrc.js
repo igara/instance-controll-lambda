@@ -1,3 +1,7 @@
 module.exports = {
-  extends: 'next/core-web-vitals',
+  extends: ['eslint:recommended'],
+  env: {
+    node: true,
+    es6: true,
+  },
 };
