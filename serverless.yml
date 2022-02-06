@@ -1,0 +1,47 @@
+service: instance-controll-lambda
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  memorySize: 128
+  region: us-east-1
+  stage: ${opt:stage, 'development'}
+
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'lambda:InvokeFunction'
+      Resource:
+        - '*'
+
+functions:
+  start_instance:
+    handler: src/functions/start_instance.handler
+    timeout: 900
+    architecture: arm64
+  status_all_instance:
+    handler: src/functions/status_all_instance.handler
+    timeout: 900
+    architecture: arm64
+  stop_all_instance:
+    handler: src/functions/stop_all_instance.handler
+    timeout: 900
+    events:
+      - scheduler: cron(0 9 * * ? *) # UTC時間設定のため、-9時間
+    architecture: arm64
+
+plugins:
+  - serverless-offline
+  - serverless-esbuild
+  - serverless-dotenv-plugin
+
+custom:
+  dotenv:
+    path: .env.${self:provider.stage}
+  esbuild:
+    bundle: true
+    minify: true
+  serverless-offline:
+    useChildProcesses: false
+    allowCache: true

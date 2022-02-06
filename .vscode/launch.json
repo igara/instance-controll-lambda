@@ -1,0 +1,34 @@
+{
+  // IntelliSense を使用して利用可能な属性を学べます。
+  // 既存の属性の説明をホバーして表示します。
+  // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "syonet_eight_algolia サーバサイド用のデバッガ設定",
+      "type": "node",
+      "request": "attach",
+      "skipFiles": ["<node_internals>/**"],
+      "port": 9235,
+      "cwd": "${workspaceRoot}/projects/syonet_eight_algolia"
+    },
+    {
+      "name": "algolia Jest",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}/projects/syonet_eight_algolia",
+      "runtimeArgs": [
+        "--inspect-brk",
+        "${workspaceRoot}/node_modules/jest/bin/jest.js",
+        "--runInBand",
+        "--watch"
+      ],
+      "env": {
+        "NODE_OPTIONS": "--experimental-vm-modules"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9236
+    }
+  ]
+}
