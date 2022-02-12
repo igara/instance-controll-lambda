@@ -17,6 +17,12 @@ yarn run:local [function name]
 
 ### production
 
+#### Required IAM Role
+
+- EC2
+  - AmazonEC2RoleforSSM
+  - AmazonSSMFullAccess
+
 ```
 yarn create:domain
 yarn deploy

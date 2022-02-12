@@ -34,4 +34,5 @@ localstack_tmp/*
 localstack/*
 !localstack/.gitkeep
 response.json
+event.json
 .esbuild
