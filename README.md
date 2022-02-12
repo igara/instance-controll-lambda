@@ -27,4 +27,5 @@ yarn run:local [function name]
 yarn create:domain
 yarn deploy
 aws lambda invoke --invocation-type Event --region us-east-1 --function-name instance-controll-lambda-production-[function name] response.json
+# aws lambda invoke --invocation-type Event --region us-east-1 --function-name instance-controll-lambda-production-status_all_instance  --payload file://event.json --cli-binary-format raw-in-base64-out response.json
 ```
